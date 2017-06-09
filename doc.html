@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="">
+			<ul class="layui-nav" lay-filter="">
+				<li class="layui-nav-item">
+					<a href="">最新活动</a>
+				</li>
+				<li class="layui-nav-item layui-this">
+					<a href="">产品</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="">大数据</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="javascript:;">解决方案</a>
+					<dl class="layui-nav-child">
+						<!-- 二级菜单 -->
+						<dd>
+							<a href="">移动模块</a>
+						</dd>
+						<dd>
+							<a href="">后台模版</a>
+						</dd>
+						<dd>
+							<a href="">电商平台</a>
+						</dd>
+					</dl>
+				</li>
+				<li class="layui-nav-item">
+					<a href="">社区</a>
+				</li>
+			</ul>
+			<span class="layui-breadcrumb">
+			  <a href="/">首页</a>
+			  <a href="/demo/">演示</a>
+			  <a><cite>导航元素</cite></a>
+			</span>
+			<br /> 图标：
+			<i class="layui-icon" style="font-size: 30px; color: #F08B2F;">&#xe609;</i>
+			<span class="layui-breadcrumb" lay-separator="|">
+			  <a href="">首页</a>
+			  <a href="">国际新闻</a>
+			  <a href="">亚太地区</a>
+			  <a><cite>正文</cite></a>
+			</span>
+			<div class="layui-tab" lay-filter="test">
+				<ul class="layui-tab-title">
+					<li class="layui-this">网站设置</li>
+					<li>用户管理</li>
+					<li>权限分配</li>
+					<li>商品管理</li>
+					<li>订单管理</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">内容1</div>
+					<div class="layui-tab-item">内容2</div>
+					<div class="layui-tab-item">内容3</div>
+					<div class="layui-tab-item">内容4</div>
+					<div class="layui-tab-item">内容5</div>
+				</div>
+			</div>
+			<br />
+			<!--小-->
+			<div class="layui-progress" lay-showpercent="true">
+				<div class="layui-progress-bar" lay-percent="40%"></div>
+			</div>
+			<br />
+			<div class="layui-progress layui-progress-big" lay-showpercent="true">
+				<div class="layui-progress-bar" lay-percent="80%"></div>
+			</div>
+			<br />
+			<div class="layui-form">
+				<table class="layui-table">
+					<colgroup>
+						<col width="50">
+						<col>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+							<th>人物</th>
+							<th>民族</th>
+							<th>出场时间</th>
+							<th>格言</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" name="" lay-skin="primary"></td>
+							<td>贤心</td>
+							<td>汉族</td>
+							<td>1989-10-14</td>
+							<td>人生似修行</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">输入框</label>
+					<div class="layui-input-block layui-input-text">
+						<input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">密码框</label>
+					<div class="layui-input-block layui-input-text">
+						<input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">日期</label>
+					<div class="layui-input-inline">
+						<input type="text" name="date" required lay-verify="required" placeholder="请输入日期" autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">选择框</label>
+					<div class="layui-input-block" style="width: 200px ;">
+						<select name="city" lay-verify="required">
+							<option value=""></option>
+							<option value="0">北京</option>
+							<option value="1">上海</option>
+							<option value="2">广州</option>
+							<option value="3">深圳</option>
+							<option value="4">杭州</option>
+						</select>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">复选框</label>
+					<div class="layui-input-block">
+						<input type="checkbox" name="like[write]" title="write">
+						<input type="checkbox" name="like[read]" title="read" checked>
+						<input type="checkbox" name="like[dai]" title="dai" disabled="disabled">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">原始复选框</label>
+					<div class="layui-input-block">
+						<input type="checkbox" name="like[write]" title="write" lay-skin="primary">
+						<input type="checkbox" name="like[read]" title="read" checked lay-skin="primary">
+						<input type="checkbox" name="like[dai]" title="dai" lay-skin="primary" disabled="disabled">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">开关</label>
+					<div class="layui-input-block">
+						<input type="checkbox" name="switch" lay-skin="switch">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">单选框</label>
+					<div class="layui-input-block">
+						<input type="radio" name="n" value="1" title="选1">
+						<input type="radio" name="n" value="2" title="选2" checked>
+						<input type="radio" name="n" value="3" title="选3" disabled="disabled">
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">文本域</label>
+					<div class="layui-input-block">
+						<textarea name="desc1" placeholder="请输入内容" class="layui-textarea"></textarea>
+					</div>
+				</div>
+				<div id="demo1"></div>
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript">
+			layui.use(['element', 'form', 'laydate', 'layer', 'laypage'], function() {
+				var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
+				var form = layui.form();
+				var layer = layui.layer;
+				var laypage = layui.laypage;
+//				  layer.alert("aaaaa", {title: '啊啊啊'});
+//				  layer.prompt({title: '输入任何口令，并确认'}, function(text, index){
+//					  layer.close(index);
+//					  layer.msg(text);
+//				  });
+//				  layer.confirm('确定。。。吗', {title: 'confirm'}, function(){
+//				  		layer.msg("点了确定");
+//				  	}, function(){
+//				  		layer.msg("点了取消");
+//				  	})
+//				  layer.open({
+//					  type: 1,
+//					  title: "自定义标题",
+//					  closeBtn: 1,
+//					  btn: ['按钮一', '按钮二'],
+//					  yes: function(index, layero){
+//					    //按钮【按钮一】的回调
+//					    layer.msg("按钮一")
+//					  },
+//					  btn2: function(index, layero){
+//					    //按钮【按钮二】的回调
+//					    layer.msg("按钮二")
+//					    //return false 开启该代码可禁止点击该按钮关闭
+//					  },
+//					  cancel: function(){
+//					    //右上角关闭回调
+//					    layer.msg("关闭")
+//					    //return false 开启该代码可禁止点击该按钮关闭
+//					  },
+//					  area: ['420px', '240px'], //宽高
+//					  content: "啦啦啦"     //自定义内容
+//				   });
+				
+				$('#id').on('click', function(){
+				  var that = this;
+				  layer.tips('只想提示地精准些', that); //在元素的事件回调体中，follow直接赋予this即可
+				});
+				//监听导航点击
+				element.on('nav(demo)', function(elem) {
+					//console.log(elem)
+					layer.msg(elem.text());
+				});
+
+				//全选
+				form.on('checkbox(allChoose)', function(data) {
+					var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+					child.each(function(index, item) {
+						item.checked = data.elem.checked;
+					});
+					form.render('checkbox');
+				});
+
+				//监听提交
+				form.on('submit(formDemo)',
+					function(data) {
+						console.log(data);
+						layer.msg(JSON.stringify(data.field));
+						return false;
+					});
+				form.on('select(filter)', function(data) {
+					console.log(data.elem); //得到select原始DOM对象
+					console.log(data.value); //得到被选中的值
+					console.log(data.othis); //得到美化后的DOM对象
+				}); // 分页				
+				laypage({
+					cont: 'demo1',
+					pages: 100, //总页数
+					groups: 5, //连续显示分页数
+					curr: location.hash.replace('#!page=', ''), //获取hash值为fenye的当前页
+					hash: 'page', //自定义hash值
+					skip: true
+				});
+			});
+		</script>
+	</body>
+
+</html>

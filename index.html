@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+	</head>
+	<body>
+		<div class="">
+			<ul class="layui-nav" lay-filter="">
+			  <li class="layui-nav-item"><a href="">最新活动</a></li>
+			  <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+			  <li class="layui-nav-item"><a href="">大数据</a></li>
+			  <li class="layui-nav-item">
+			    <a href="javascript:;">解决方案</a>
+			    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+			      <dd><a href="">移动模块</a></dd>
+			      <dd><a href="">后台模版</a></dd>
+			      <dd><a href="">电商平台</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item"><a href="">社区</a></li>
+			</ul>
+			<div class="layui-tab" lay-filter="test">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">网站设置</li>
+			    <li>用户管理</li>
+			    <li>权限分配</li>
+			    <li>商品管理</li>
+			    <li>订单管理</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			    <div class="layui-tab-item layui-show">内容1</div>
+			    <div class="layui-tab-item">内容2</div>
+			    <div class="layui-tab-item">内容3</div>
+			    <div class="layui-tab-item">内容4</div>
+			    <div class="layui-tab-item">内容5</div>
+			  </div>
+			</div>
+			<span class="layui-breadcrumb">
+			  <a href="/">首页</a>
+			  <a href="/demo/">演示</a>
+			  <a><cite>导航元素</cite></a>
+			</span>
+			<div class="layui-collapse">
+			  <div class="layui-colla-item">
+			    <h2 class="layui-colla-title">杜甫</h2>
+			    <div class="layui-colla-content layui-show">内容区域</div>
+			  </div>
+			  <div class="layui-colla-item">
+			    <h2 class="layui-colla-title">李清照</h2>
+			    <div class="layui-colla-content">内容区域</div>
+			  </div>
+			  <div class="layui-colla-item">
+			    <h2 class="layui-colla-title">鲁迅</h2>
+			    <div class="layui-colla-content">内容区域</div>
+			  </div>
+			</div>
+			<p><br></p>
+			<div class="">
+				<input type="button" class="layui-btn" id="lay_alert" value="alert 弹框" />
+				<input type="button" class="layui-btn" id="lay_prompt" value="prompt 弹框" />
+				<input type="button" class="layui-btn" id="lay_confirm" value="confirm 弹框" />
+				<input type="button" class="layui-btn layui-btn-primary" id="lay_msg" value="msg 弹框" />
+				<input type="button" class="layui-btn layui-btn-disabled" id="" value="禁用" />
+			</div>
+			<div class="layui-form">
+			  <table class="layui-table" id="myTable">
+			    <colgroup>
+			      <col width="50">
+			      <col width="150">
+			      <col width="150">
+			      <col width="200">
+			      <col>
+			    </colgroup>
+			    <thead>
+			      <tr>
+			        <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+			        <th>人物</th>
+			        <th>民族</th>
+			        <th>出场时间</th>
+			        <th>格言</th>
+			      </tr> 
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td><input type="checkbox" name="" lay-skin="primary"></td>
+			        <td>贤心</td>
+			        <td>汉族</td>
+			        <td>1989-10-14</td>
+			        <td>人生似修行</td> 
+			      </tr>
+			      <tr>
+			        <td><input type="checkbox" name="" lay-skin="primary"></td>
+			        <td>1贤心</td>
+			        <td>1汉族</td>
+			        <td>21989-10-14</td>
+			        <td>1人生似修行</td> 
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+			<form class="layui-form" action="">
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">输入框</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">密码框</label>
+			    <div class="layui-input-block">
+			      <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">日期</label>
+			    <div class="layui-input-inline">
+			      <input type="text" name="date" required lay-verify="required" placeholder="请输入日期" 
+			      	autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">选择框</label>
+			    <div class="layui-input-block">
+			      <select name="city" lay-filter="selectDemo" lay-verify="required">
+			        <option value=""></option>
+			        <option value="0">北京</option>
+			        <option value="1">上海</option>
+			        <option value="2">广州</option>
+			        <option value="3">深圳</option>
+			        <option value="4">杭州</option>
+			      </select>
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">复选框</label>
+			    <div class="layui-input-block">
+			      <input type="checkbox" name="like[write]" title="write">
+			      <input type="checkbox" name="like[read]" title="read" checked>
+			      <input type="checkbox" name="like[dai]" title="dai" disabled="disabled">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">原始复选框</label>
+			    <div class="layui-input-block">
+			      <input type="checkbox" name="like[write]" title="write" lay-skin="primary">
+			      <input type="checkbox" name="like[read]" title="read" checked lay-skin="primary">
+			      <input type="checkbox" name="like[dai]" title="dai" lay-skin="primary" disabled="disabled">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">开关</label>
+			    <div class="layui-input-block">
+			      <input type="checkbox" id="switch" name="switch" lay-skin="switch" lay-filter="switchDemo">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">文件上传</label>
+			    <div class="layui-input-block">
+			      <input type="file" name="file" class="layui-upload-file"> 
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">单选框</label>
+			    <div class="layui-input-block">
+			      <input type="radio" name="n" value="1" title="选1">
+			      <input type="radio" name="n" value="2" title="选2" checked>
+			      <input type="radio" name="n" value="3" title="选3" disabled="disabled">
+			    </div>
+			  </div>
+			  <div class="layui-form-item layui-form-text">
+			    <label class="layui-form-label">文本域</label>
+			    <div class="layui-input-block">
+			      <textarea name="desc1" placeholder="请输入内容" class="layui-textarea"></textarea>
+			    </div>
+			  </div>
+			  <div class="layui-form-item layui-form-area">
+			    <label class="layui-form-label">地区</label>
+			    <div class="layui-input-block">
+			      <span class="fieldSet">
+						<input type="hidden" id="areaId" name="memberAttribute_4" treePath=",219,243,247" />
+					</span>
+			    </div>
+			  </div>
+			  <div class="layui-form-item layui-form-text" style="width: 1000px;">
+			    <label class="layui-form-label">富文本</label>
+			    <div class="layui-input-block">
+			      <textarea class="layui-textarea" id="LAY_demo1" style="display: none"></textarea>
+			    </div>
+			  </div>
+			  <div id="demo1"></div>
+			  <div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			    </div>
+			  </div>
+			</form>
+		</div>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/lay/modules/jquert.lSelect.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+		<script type="text/javascript">
+			//一般直接写在一个js文件中
+			layui.use(['layer', 'form', 'element', 'laydate', 'layedit', 'laypage', 'upload'], function(){
+			  var layer = layui.layer
+			  ,form = layui.form();
+			  var laydate = layui.laydate;
+			  var layedit = layui.layedit;
+			  var laypage = layui.laypage;
+			  var element = layui.element();
+			  //上传文件
+			  layui.upload({
+			    url: '' //上传接口
+			    ,success: function(res){ //上传成功后的回调
+			      console.log(res)
+			    }
+			  });
+			  
+			  //nav点击切换
+			  element.on('tab(test)', function(data){
+				  console.log(this); //当前Tab标题所在的原始DOM元素
+				  alert(data.index); //得到当前Tab的所在下标
+				  console.log(data.elem); //得到当前的Tab大容器
+				});
+			  
+			  //弹框
+			  $("#lay_alert").click(function(){
+			  	layer.alert("alert弹框");
+			  })
+			  $("#lay_prompt").click(function(){
+			  	layer.prompt({title: '输入任何口令，并确认'}, function(text, index){
+				  layer.close(index);
+				  layer.msg(text);
+				});
+			  })
+			  $("#lay_confirm").click(function(){
+			  	layer.confirm('确定。。。吗', {title: 'confirm'}, function(){
+			  		layer.msg("点了确定");
+			  	}, function(){
+			  		layer.msg("点了取消");
+			  	})
+			  })
+			  $("#lay_msg").click(function(){
+			  	layer.msg("显示消息");
+			  })
+			  
+			  
+			  //全选
+			  form.on('checkbox(allChoose)', function(data){
+			    var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+			    child.each(function(index, item){
+			      item.checked = data.elem.checked;
+			    });
+			    form.render('checkbox');
+			  });
+			  
+			  form.on('select(selectDemo)', function(data) {
+			  	console.log(data);
+			  })
+			  
+			  
+			  //监听提交
+			  form.on('submit(formDemo)', function(data){
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			  });
+			  
+			  //富文本编辑器
+			  var index = layedit.build('LAY_demo1');
+			  
+			  // 分页
+			  laypage({
+			    cont: 'demo1'
+			    ,pages: 100 //总页数
+			    ,groups: 5 //连续显示分页数
+			    ,last: "尾页"
+			    ,skip: true
+			    ,curr: location.hash.replace('#!page=', '') //获取hash值为fenye的当前页
+    			,hash: 'page' //自定义hash值
+			  });
+			  
+			  
+			  //地区三级联动
+			    var $areaId = $("#areaId");
+			    $areaId.lSelect({
+					url: "/area",
+				});
+				
+				//表格
+				$('#myTable').DataTable();
+			});
+		</script>
+	</body>
+</html>
