@@ -1283,6 +1283,12 @@ a cite {
 	margin: 10px 0;
 	background-color: #fff
 }
+.sorting_desc{
+	
+}
+.sorting_asc{
+	
+}
 
 .layui-table tr {
 	transition: all .3s;
