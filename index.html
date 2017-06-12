@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="layui/swiper/swiper-3.4.2.min.css"/>
 	</head>
 	<body>
 		<div class="">
@@ -21,6 +22,22 @@
 			  </li>
 			  <li class="layui-nav-item"><a href="">社区</a></li>
 			</ul>
+			
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+		            <div class="swiper-slide">
+		            	<img src="img/1.jpg"/>
+		            </div>
+		            <div class="swiper-slide">
+		            	<img src="img/2.jpg"/>
+		            </div>
+		            <div class="swiper-slide">
+		            	<img src="img/3.jpg"/>
+		            </div>
+		        </div>
+		        <div class="swiper-pagination"></div>
+			</div>
+			
 			<div class="layui-tab" lay-filter="test">
 			  <ul class="layui-tab-title">
 			    <li class="layui-this">网站设置</li>
@@ -84,46 +101,68 @@
 			    </thead>
 			    <tbody>
 			      <tr>
-			        <td><input type="checkbox" name="" lay-skin="primary"></td>
+			        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="1"></td>
 			        <td>贤心</td>
 			        <td>汉族</td>
 			        <td>1989-10-14</td>
 			        <td>人生似修行</td> 
 			      </tr>
 			      <tr>
-			        <td><input type="checkbox" name="" lay-skin="primary"></td>
-			        <td>1贤心</td>
-			        <td>1汉族</td>
-			        <td>21989-10-14</td>
-			        <td>1人生似修行</td> 
+			        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="2"></td>
+			        <td>贤心</td>
+			        <td>汉族</td>
+			        <td>1989-10-14</td>
+			        <td>人生似修行</td> 
+			      </tr>
+			      <tr>
+			        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="3"></td>
+			        <td>贤心</td>
+			        <td>汉族</td>
+			        <td>1989-10-14</td>
+			        <td>人生似修行</td> 
+			      </tr>
+			      <tr>
+			        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="4"></td>
+			        <td>贤心</td>
+			        <td>汉族</td>
+			        <td>1989-10-14</td>
+			        <td>人生似修行</td> 
+			      </tr>
+			      <tr>
+			        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="5"></td>
+			        <td>贤心</td>
+			        <td>汉族</td>
+			        <td>1989-10-14</td>
+			        <td>人生似修行</td> 
 			      </tr>
 			    </tbody>
 			  </table>
 			</div>
 			<form class="layui-form" action="">
+			  <input type="hidden" name="td" id="td" value="" />	
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">输入框</label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+			      <input type="text" name="title" lay-verify="username" placeholder="请输入email" autocomplete="off" class="layui-input" value="abc">
 			    </div>
 			  </div>
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">密码框</label>
 			    <div class="layui-input-block">
-			      <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+			      <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
 			    </div>
 			  </div>
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">日期</label>
 			    <div class="layui-input-inline">
-			      <input type="text" name="date" required lay-verify="required" placeholder="请输入日期" 
+			      <input type="text" name="date" placeholder="请输入日期" 
 			      	autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			    </div>
 			  </div>
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">选择框</label>
 			    <div class="layui-input-block">
-			      <select name="city" lay-filter="selectDemo" lay-verify="required">
+			      <select name="city" id="select-city" lay-filter="selectDemo" >
 			        <option value=""></option>
 			        <option value="0">北京</option>
 			        <option value="1">上海</option>
@@ -136,17 +175,17 @@
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">复选框</label>
 			    <div class="layui-input-block">
-			      <input type="checkbox" name="like[write]" title="write">
-			      <input type="checkbox" name="like[read]" title="read" checked>
-			      <input type="checkbox" name="like[dai]" title="dai" disabled="disabled">
+			      <input type="checkbox" name="check1" title="write" value="c1">
+			      <input type="checkbox" name="check1" title="read" checked value="c2">
+			      <input type="checkbox" name="check1" title="dai" disabled="disabled">
 			    </div>
 			  </div>
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">原始复选框</label>
 			    <div class="layui-input-block">
-			      <input type="checkbox" name="like[write]" title="write" lay-skin="primary">
-			      <input type="checkbox" name="like[read]" title="read" checked lay-skin="primary">
-			      <input type="checkbox" name="like[dai]" title="dai" lay-skin="primary" disabled="disabled">
+			      <input type="checkbox" name="check2" title="write" lay-skin="primary" value="1">
+			      <input type="checkbox" name="check2" title="read" checked lay-skin="primary" value="2">
+			      <input type="checkbox" name="check2" title="dai" lay-skin="primary" disabled="disabled">
 			    </div>
 			  </div>
 			  <div class="layui-form-item">
@@ -197,12 +236,14 @@
 			    </div>
 			  </div>
 			</form>
+			<input type="text" lay-verify="required|phone|number">
 		</div>
 		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="layui/lay/modules/jquert.lSelect.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+		<script src="layui/swiper/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			
 			//一般直接写在一个js文件中
 			layui.use(['layer', 'form', 'element', 'laydate', 'layedit', 'laypage', 'upload'], function(){
 			  var layer = layui.layer
@@ -211,6 +252,14 @@
 			  var layedit = layui.layedit;
 			  var laypage = layui.laypage;
 			  var element = layui.element();
+			  
+			//轮播
+			var swiper = new Swiper('.swiper-container', {
+		        pagination: '.swiper-pagination',
+		        loop: true,
+		        autoplay: 2000
+		    });
+			  
 			  //上传文件
 			  layui.upload({
 			    url: '' //上传接口
@@ -222,7 +271,6 @@
 			  //nav点击切换
 			  element.on('tab(test)', function(data){
 				  console.log(this); //当前Tab标题所在的原始DOM元素
-				  alert(data.index); //得到当前Tab的所在下标
 				  console.log(data.elem); //得到当前的Tab大容器
 				});
 			  
@@ -257,14 +305,38 @@
 			    form.render('checkbox');
 			  });
 			  
+			  form.on('checkbox(td-id)', function(data){
+			  	var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+			  	var ids = "";
+			    child.each(function(index, item){
+			      if(item.checked){
+			      	ids += item.value + ",";
+			      }
+			    });
+			    console.log(ids);
+			  })
+			  
 			  form.on('select(selectDemo)', function(data) {
 			  	console.log(data);
 			  })
 			  
+			  form.verify({
+				  username: function(value, item){ //value：表单的值、item：表单的DOM对象
+				    if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+				      return '用户名不能有特殊字符';
+				    }
+				    if(/(^\_)|(\__)|(\_+$)/.test(value)){
+				      return '用户名首尾不能出现下划线\'_\'';
+				    }
+				    if(/^\d+\d+\d$/.test(value)){
+				      return '用户名不能全为数字';
+				    }
+				  }
+			});      
 			  
 			  //监听提交
 			  form.on('submit(formDemo)', function(data){
-			    layer.msg(JSON.stringify(data.field));
+			    console.log(data.field);
 			    return false;
 			  });
 			  
@@ -288,9 +360,7 @@
 			    $areaId.lSelect({
 					url: "/area",
 				});
-				
-				//表格
-				$('#myTable').DataTable();
+			
 			});
 		</script>
 	</body>
