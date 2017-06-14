@@ -1,9 +1,95 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8" />
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="DataTables-1.10.15/media/js/jquery.dataTables.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
+		<div class="layui-form">
+		  <table class="layui-table" id="myTable">
+		    <colgroup>
+		      <col width="50">
+		      <col width="150">
+		      <col width="150">
+		      <col width="200">
+		      <col>
+		    </colgroup>
+		    <thead>
+		      <tr>
+		        <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+		        <th>人物</th>
+		        <th>民族</th>
+		        <th>出场时间</th>
+		        <th>格言</th>
+		      </tr> 
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="1"></td>
+		        <td>贤心</td>
+		        <td>汉族</td>
+		        <td>1989-10-14</td>
+		        <td>人生似修行</td> 
+		      </tr>
+		      <tr>
+		        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="2"></td>
+		        <td>贤心</td>
+		        <td>汉族</td>
+		        <td>1989-10-14</td>
+		        <td>人生似修行</td> 
+		      </tr>
+		      <tr>
+		        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="3"></td>
+		        <td>贤心</td>
+		        <td>汉族</td>
+		        <td>1989-10-14</td>
+		        <td>人生似修行</td> 
+		      </tr>
+		      <tr>
+		        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="4"></td>
+		        <td>贤心</td>
+		        <td>汉族</td>
+		        <td>1989-10-14</td>
+		        <td>人生似修行</td> 
+		      </tr>
+		      <tr>
+		        <td><input type="checkbox" name="" lay-filter="td-id" lay-skin="primary" value="5"></td>
+		        <td>贤心</td>
+		        <td>汉族</td>
+		        <td>1989-10-14</td>
+		        <td>人生似修行</td> 
+		      </tr>
+		    </tbody>
+		  </table>
+		</div>
+		<script type="text/javascript">
+			layui.use(['form', 'laytpl'], function(){
+				var form = layui.form();
+				//全选
+			  form.on('checkbox(allChoose)', function(data){
+			    var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+			    child.each(function(index, item){
+			      item.checked = data.elem.checked;
+			    });
+			    form.render('checkbox');
+			  });
+			})
+			function initTable(n){
+				var allHtml = ""
+				for (var i=0;i<n;i++) {
+					var tr = '<tr>'+
+						'<td>'+
+							'<input>'+
+						'</td>'+
+					'</tr>'
+				}
+			}
+			$("#myTable").DataTable();
+			
+		</script>
 	</body>
 </html>

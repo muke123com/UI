@@ -49,7 +49,7 @@
 					if ($.isEmptyObject(data)) {
 						return false;
 					}
-					var select = '<select name="' + selectName + '">';
+					var select = '<select lay-ignore name="' + selectName + '">';
 					if (settings.emptyValue != null && settings.choose != null) {
 						select += '<option value="' + settings.emptyValue + '">' + settings.choose + '</option>';
 					}
