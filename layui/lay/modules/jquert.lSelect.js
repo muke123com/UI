@@ -14,7 +14,8 @@
 			return this.each(function() {
 				var $input = $(this);
 				var id = $input.val();
-				var treePath = $input.attr("treePath");
+//				var treePath = $input.attr("treePath");
+				var treePath = getAreaTreePath(id);
 				var selectName = $input.attr("name") + "_select";
 				
 				if (treePath != null && treePath != "") {
@@ -27,23 +28,56 @@
 					addSelect($input, null, null);
 				}
 				
+				/**
+				 * @param {Object} parentId
+				 * 获取area.js数据
+				 */
+				function getArea(parentId){
+					var arr = {};
+					areasList.forEach(function(item){
+						if(item.parent == parentId){
+							arr[item.id] = item.name;
+						}
+					})
+					return arr;
+				}
+				
+				/**
+				 * @param {Object} id
+				 * 获取area.js特定id的tree_path属性
+				 */
+				function getAreaTreePath(id){
+					var tree_path = "";
+					areasList.forEach(function(item){
+						if(item.id == id){
+							tree_path = item.tree_path;
+						}
+					})
+					return tree_path;
+				}
+				
 				function addSelect($position, parentId, currentId) {
 					$position.nextAll("select[name=" + selectName + "]").remove();
 					if ($position.is("select") && (parentId == null || parentId == "")) {
 						return false;
 					}
 					if (cache[parentId] == null) {
-						$.ajax({
-							url: settings.url,
-							type: settings.type,
-							data: parentId != null ? {parentId: parentId} : null,
-							dataType: "json",
-							cache: false,
-							async: false,
-							success: function(data) {
-								cache[parentId] = data;
-							}
-						});
+						if(parentId == ""){
+							parentId = null;
+						}
+						cache[parentId] = getArea(parentId);
+						
+//						$.ajax({
+//							url: settings.url,
+//							type: settings.type,
+//							data: parentId != null ? {parentId: parentId} : null,
+//							dataType: "json",
+//							cache: false,
+//							async: false,
+//							success: function(data) {
+//								cache[parentId] = data;
+//							}
+//						});
 					}
 					var data = cache[parentId];
 					if ($.isEmptyObject(data)) {

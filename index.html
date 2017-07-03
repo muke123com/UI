@@ -65,6 +65,7 @@
 				<input type="button" class="layui-btn" id="lay_confirm" value="confirm 弹框" />
 				<input type="button" class="layui-btn layui-btn-primary" id="lay_msg" value="msg 弹框" />
 				<input type="button" class="layui-btn layui-btn-disabled" id="" value="禁用" />
+				<input type="button" class="layui-btn" id="loading" value="Loading" />
 			</div>
 			<div class="layui-form">
 			  <table class="layui-table" id="myTable">
@@ -203,7 +204,7 @@
 			    <label class="layui-form-label">地区</label>
 			    <div class="layui-input-block">
 			      <span class="fieldSet">
-						<input type="hidden" id="areaId" name="memberAttribute_4" treePath=",792,804" />
+						<input type="hidden" id="areaId" name="area" value="1167" />
 					</span>
 			    </div>
 			  </div>
@@ -227,6 +228,7 @@
 		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="layui/lay/modules/jquert.lSelect.js" type="text/javascript" charset="utf-8"></script>
 		<script src="layui/swiper/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/lay/modules/area.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			
 			//一般直接写在一个js文件中
@@ -263,7 +265,12 @@
 				});
 			  })
 			  $("#lay_confirm").click(function(){
-			  	layer.confirm('确定。。。吗', {title: 'confirm'}, function(){
+			  	layer.confirm('确定吗？', 
+			  		{
+			  			id: "c1",
+			  			title: '确定弹框',
+			  			btn: ['按钮1', '按钮2']
+			  	}, function(){
 			  		layer.msg("点了确定");
 			  	}, function(){
 			  		layer.msg("点了取消");
@@ -272,14 +279,24 @@
 			  $("#lay_msg").click(function(){
 			  	layer.msg("显示消息");
 			  })
-			  
+			  $("#loading").click(function(){
+			  	var loading = layer.load(2, {shade: 0.1}); //0代表加载的风格，支持0-2
+			  	setTimeout(function(){
+			  		layer.close(loading);
+			  	}, 2000)
+			  })
 			  
 			  //全选
 			  form.on('checkbox(allChoose)', function(data){
 			    var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+			    var ids = "";
 			    child.each(function(index, item){
 			      item.checked = data.elem.checked;
+			      if(item.checked){
+			      	ids += item.value + ",";
+			      }
 			    });
+			    $("[name=td]").val(ids);
 			    form.render('checkbox');
 			  });
 			  
@@ -291,11 +308,11 @@
 			      	ids += item.value + ",";
 			      }
 			    });
-			    console.log(ids);
+			    $("[name=td]").val(ids);
 			  })
 			  
 			  form.on('select(selectDemo)', function(data) {
-			  	console.log(data);
+			  	console.log(data.elem.value);
 			  })
 			  
 			  form.verify({
@@ -335,10 +352,8 @@
 			  
 			  //地区三级联动
 			    var $areaId = $("#areaId");
-			    $areaId.lSelect({
-					url: "/area",
-				});
-			
+			    $areaId.lSelect({});
+			    
 			});
 		</script>
 	</body>
